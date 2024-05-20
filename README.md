@@ -1,7 +1,6 @@
 # Text To Video Script
 Text To Video Script To generate short form videos for TikTok and YouTube Shorts.
-
-It generates audio using AWS Polly and Subtitles with the moviepy. Story is generated with ChatGPT prompts
+It generates voiceover audio using AWS Polly and Subtitles with the moviepy. Story is generated with ChatGPT prompts
 
 # Demo
 ![Alt text](Gotham.png)
