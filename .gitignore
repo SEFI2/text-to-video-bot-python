@@ -1,0 +1,6 @@
+bin
+lib
+include
+.env
+pyvenv.cfg
+audio*
