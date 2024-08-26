@@ -12,7 +12,6 @@ import copy
 
 load_dotenv()
 
-
 mutex = Lock()
 counter = 0
 def get_counter():
@@ -20,12 +19,11 @@ def get_counter():
     with mutex:
         counter += 1
         return counter
-    
 
 polly = boto3.client('polly',
                 aws_access_key_id=os.environ['AWS_ACCESS_KEY'],
                 aws_secret_access_key=os.environ['AWS_SECRET_KEY'],
-                region_name='us-east-1')
+                region_name=os.environ['AWS_S3_REGION'])
 
 def _get_engine(engines):
     for engine in engines:
@@ -109,9 +107,6 @@ def _transcribe_audio_polly(text, voice_obj):
             i += 1
     return result
 
-
-
-
 voice = None
 def get_voice_obj():
     global voice
@@ -139,4 +134,3 @@ def generate_audio_polly(text):
         with open(audio_file, "wb") as file:
             file.write(stream.read())
         return audio_file, _transcribe_audio_polly(text, voice_obj)
-
